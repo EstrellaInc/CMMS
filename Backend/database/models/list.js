@@ -6,7 +6,7 @@ const ListSchema = new mongoose.Schema({
         type: String,
         trim: true,
         minlength: 3
-    }
+    },
 });
 
 const List = mongoose.model('List', ListSchema);
