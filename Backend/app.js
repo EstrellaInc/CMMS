@@ -44,10 +44,18 @@ app.post('/lists',(req,res)=>{
 });
 
 
-app.get('/list/:listId',(req,res) =>{
-    Lists.find({ _id: req.params.listId})
+app.get('/lists/:listId',(req,res) =>{
+    List.find({ _id: req.params.listId})
         .then((list) => res.send(list))
         .catch(error => console.log(error));
+});
+
+app.patch('/lists/:listId',(req,res)=>{
+    List.findOneAndUpdate({_id : req.params.listId}, {$set: req.body})
+        .then((list) => res.send(list))
+        .catch(error => console.log(error));
+
+
 });
 /*
 GET -> TOMAR DATA
